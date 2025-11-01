@@ -1,13 +1,12 @@
-body {
+body, #root {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  padding: 0;
+  /* El color azul claro del fondo de la imagen */
+  background-color: #7EC0EE; /* Un azul claro similar al de tu imagen */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* Alinea el contenido al final (abajo) */
+  min-height: 100vh;
+  overflow: hidden; /* Evita barras de desplazamiento */
+  font-family: Arial, sans-serif; /* O la fuente que elijas */
 }

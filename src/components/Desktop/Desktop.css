@@ -1,0 +1,124 @@
+.desktop-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 50px;
+}
+
+/* Contenedor del monitor */
+.monitor-container {
+  position: absolute;
+  bottom: 110px; /* ajusta para que se meta un poco en la mesa */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2; /* encima de la mesa */
+  cursor: pointer;
+}
+
+.libros-container {  
+  position: absolute;
+  bottom: 80px; /* igual que el monitor, ajusta según la imagen */
+  left: 20%; /* puedes moverlo más a la izquierda o derecha */
+  z-index: 2;
+  cursor: pointer;
+}
+.cafe-container {  
+  position: absolute;
+  bottom: 80px; /* igual que el monitor, ajusta según la imagen */
+  left: 70%; /* puedes moverlo más a la izquierda o derecha */
+  z-index: 2;
+  cursor: pointer;
+}
+.telefono-container {  
+  position: absolute;
+  bottom: 40px; /* igual que el monitor, ajusta según la imagen */
+  left: 80%; /* puedes moverlo más a la izquierda o derecha */
+  z-index: 2;
+  cursor: pointer;
+}
+.ventana-container {  
+  position: absolute;
+  bottom: 230px; /* igual que el monitor, ajusta según la imagen */
+  left: 70%; /* puedes moverlo más a la izquierda o derecha */
+  z-index: 1;
+}
+.cuadro-container {  
+  position: absolute;
+  bottom: 230px; /* igual que el monitor, ajusta según la imagen */
+  left: 0%; /* puedes moverlo más a la izquierda o derecha */
+  z-index: 1;
+}
+.lampara-container {  
+  position: absolute;
+  bottom: 130px; /* igual que el monitor, ajusta según la imagen */
+  left: 60%; /* puedes moverlo más a la izquierda o derecha */
+  z-index: 2;
+}
+/* Imagen de la mesa */
+.mesa-container img {
+  /* width: 600px; ajusta el tamaño según tu diseño */
+  display: block;
+  margin: 0 auto;
+  z-index: 1;
+  position: relative;
+}
+
+/* --- Estilos para los Tooltips --- */
+
+/* 1. Contenedor del Objeto (Esencial) */
+/* Todos los contenedores de objetos deben ser 'position: relative' 
+   para que el tooltip se posicione correctamente respecto a ellos. */
+.object-with-tooltip {
+  display: inline-block; /* O el display que ya tengas, pero position:relative es clave */
+}
+
+/* 2. Estilo del Texto del Tooltip */
+.tooltip-text {
+  visibility: hidden; /* Oculto por defecto */
+  width: auto; /* Ancho del tooltip */
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 1000; /* Asegura que esté por encima de todos los objetos */
+  bottom: 100%; /* Posiciona el tooltip encima del objeto */
+  left: 50%;
+  margin-left: -75px; /* Centra el tooltip (mitad del ancho) */
+  opacity: 0;
+  transition: opacity 0.3s; /* Transición suave para la aparición */
+  pointer-events: none; /* Asegura que el tooltip no interfiera con el clic */
+  font-size: 0.9em;
+  white-space: nowrap; /* Evita saltos de línea innecesarios */
+}
+
+/* 3. Flecha del Tooltip (Opcional, pero da mejor acabado) */
+.tooltip-text::after {
+  content: "";
+  top: 100%; /* Abajo del tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+/* 4. Mostrar el Tooltip al hacer Hover */
+.object-with-tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* --- Asegúrate de que tus contenedores de objetos tienen position: relative --- */
+/*
+.monitor-container,
+.libros-container,
+.cafe-container,
+.telefono-container {
+    position: relative; 
+    ... otros estilos de posicionamiento absoluto ...
+}
+*/
