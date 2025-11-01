@@ -1,3 +1,4 @@
+/* Contenedor general */
 .desktop-container {
   position: relative;
   width: 100%;
@@ -7,98 +8,58 @@
   margin-top: 50px;
 }
 
-/* Contenedor del monitor */
-.monitor-container {
-  position: absolute;
-  bottom: 110px; /* ajusta para que se meta un poco en la mesa */
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2; /* encima de la mesa */
+/* Contenedores de objetos */
+.monitor-container,
+.libros-container,
+.cafe-container,
+.telefono-container,
+.lampara-container,
+.ventana-container,
+.cuadro-container {
   cursor: pointer;
+  position: absolute; /* Mantener absolute para superposición */
+  z-index: 2;
 }
 
-.libros-container {  
-  position: absolute;
-  bottom: 80px; /* igual que el monitor, ajusta según la imagen */
-  left: 20%; /* puedes moverlo más a la izquierda o derecha */
-  z-index: 2;
-  cursor: pointer;
-}
-.cafe-container {  
-  position: absolute;
-  bottom: 80px; /* igual que el monitor, ajusta según la imagen */
-  left: 70%; /* puedes moverlo más a la izquierda o derecha */
-  z-index: 2;
-  cursor: pointer;
-}
-.telefono-container {  
-  position: absolute;
-  bottom: 40px; /* igual que el monitor, ajusta según la imagen */
-  left: 80%; /* puedes moverlo más a la izquierda o derecha */
-  z-index: 2;
-  cursor: pointer;
-}
-.ventana-container {  
-  position: absolute;
-  bottom: 230px; /* igual que el monitor, ajusta según la imagen */
-  left: 70%; /* puedes moverlo más a la izquierda o derecha */
-  z-index: 1;
-}
-.cuadro-container {  
-  position: absolute;
-  bottom: 230px; /* igual que el monitor, ajusta según la imagen */
-  left: 0%; /* puedes moverlo más a la izquierda o derecha */
-  z-index: 1;
-}
-.lampara-container {  
-  position: absolute;
-  bottom: 130px; /* igual que el monitor, ajusta según la imagen */
-  left: 60%; /* puedes moverlo más a la izquierda o derecha */
-  z-index: 2;
-}
 /* Imagen de la mesa */
 .mesa-container img {
-  /* width: 600px; ajusta el tamaño según tu diseño */
   display: block;
   margin: 0 auto;
   z-index: 1;
   position: relative;
+  max-width: 90%;
+  height: auto;
 }
 
-/* --- Estilos para los Tooltips --- */
-
-/* 1. Contenedor del Objeto (Esencial) */
-/* Todos los contenedores de objetos deben ser 'position: relative' 
-   para que el tooltip se posicione correctamente respecto a ellos. */
+/* Tooltips */
 .object-with-tooltip {
-  display: inline-block; /* O el display que ya tengas, pero position:relative es clave */
+  display: inline-block;
+  position: relative;
 }
 
-/* 2. Estilo del Texto del Tooltip */
 .tooltip-text {
-  visibility: hidden; /* Oculto por defecto */
-  width: auto; /* Ancho del tooltip */
+  visibility: hidden;
+  width: auto;
   background-color: #333;
   color: #fff;
   text-align: center;
   border-radius: 6px;
   padding: 5px 10px;
   position: absolute;
-  z-index: 1000; /* Asegura que esté por encima de todos los objetos */
-  bottom: 100%; /* Posiciona el tooltip encima del objeto */
+  z-index: 1000;
+  bottom: 100%;
   left: 50%;
-  margin-left: -75px; /* Centra el tooltip (mitad del ancho) */
+  transform: translateX(-50%);
   opacity: 0;
-  transition: opacity 0.3s; /* Transición suave para la aparición */
-  pointer-events: none; /* Asegura que el tooltip no interfiera con el clic */
+  transition: opacity 0.3s;
+  pointer-events: none;
   font-size: 0.9em;
-  white-space: nowrap; /* Evita saltos de línea innecesarios */
+  white-space: nowrap;
 }
 
-/* 3. Flecha del Tooltip (Opcional, pero da mejor acabado) */
 .tooltip-text::after {
   content: "";
-  top: 100%; /* Abajo del tooltip */
+  top: 100%;
   left: 50%;
   margin-left: -5px;
   border-width: 5px;
@@ -106,19 +67,61 @@
   border-color: #333 transparent transparent transparent;
 }
 
-/* 4. Mostrar el Tooltip al hacer Hover */
 .object-with-tooltip:hover .tooltip-text {
   visibility: visible;
   opacity: 1;
 }
 
-/* --- Asegúrate de que tus contenedores de objetos tienen position: relative --- */
-/*
-.monitor-container,
-.libros-container,
-.cafe-container,
-.telefono-container {
-    position: relative; 
-    ... otros estilos de posicionamiento absoluto ...
-}
-*/
+/* --- Media Queries para Móvil --- */
+@media (max-width: 768px) {
+  .monitor-container {
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .libros-container {
+    bottom: 70px;
+    left: 15%;
+    transform: translateX(0);
+  }
+
+  .cafe-container {
+    bottom: 70px;
+    left: 65%;
+    transform: translateX(0);
+  }
+
+  .telefono-container {
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .lampara-container {
+    bottom: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .ventana-container {
+    bottom: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .cuadro-container {
+    bottom: 200px;
+    left: 10%;
+    transform: translateX(0);
+  }
+
+  .mesa-container img {
+    max-width: 100%;
+  }
+
+  .tooltip-text {
+    font-size: 0.8em;
+    padding: 3px 6px;
+    }
+  }
