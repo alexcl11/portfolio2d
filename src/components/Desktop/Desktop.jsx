@@ -312,7 +312,7 @@ export default class Desktop extends Component {
             <p style="margin-top: 10px;">
                 🔗 <a href="https://laredonda.gt.tc" target="_blank" style="color:#007bff; text-decoration:none;">Aplicación en Vivo</a>  
                 &nbsp;|&nbsp;  
-                <a href="https://github.com/tuusuario/LaRedonda" target="_blank" style="color:#007bff; text-decoration:none;">Código Fuente (GitHub)</a>
+                <a href="https://github.com/alexcl11/LaRedonda" target="_blank" style="color:#007bff; text-decoration:none;">Código Fuente (GitHub)</a>
             </p>
             </div>`,        
         showCloseButton: true,
