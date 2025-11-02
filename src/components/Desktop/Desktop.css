@@ -1,4 +1,3 @@
-/* Contenedor general */
 .desktop-container {
   position: relative;
   width: 100%;
@@ -6,41 +5,100 @@
   justify-content: center;
   align-items: flex-end;
   margin-top: 50px;
-  flex-wrap: wrap; /* permite que los elementos se ajusten si no caben */
 }
 
-/* Contenedores de objetos */
-.monitor-container,
-.libros-container,
-.cafe-container,
-.telefono-container,
-.lampara-container,
-.ventana-container,
-.cuadro-container {
+/* Contenedor del monitor */
+.monitor-container {
+  position: absolute;
+  bottom: 110px;
+  /* ajusta para que se meta un poco en la mesa */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  /* encima de la mesa */
   cursor: pointer;
-  position: absolute; /* Mantener absolute para escritorio */
+}
+
+.libros-container {
+  position: absolute;
+  bottom: 80px;
+  /* igual que el monitor, ajusta según la imagen */
+  left: 20%;
+  /* puedes moverlo más a la izquierda o derecha */
+  z-index: 2;
+  cursor: pointer;
+}
+
+.cafe-container {
+  position: absolute;
+  bottom: 80px;
+  /* igual que el monitor, ajusta según la imagen */
+  left: 70%;
+  /* puedes moverlo más a la izquierda o derecha */
+  z-index: 2;
+  cursor: pointer;
+}
+
+.telefono-container {
+  position: absolute;
+  bottom: 40px;
+  /* igual que el monitor, ajusta según la imagen */
+  left: 80%;
+  /* puedes moverlo más a la izquierda o derecha */
+  z-index: 2;
+  cursor: pointer;
+}
+
+.ventana-container {
+  position: absolute;
+  bottom: 230px;
+  /* igual que el monitor, ajusta según la imagen */
+  left: 70%;
+  /* puedes moverlo más a la izquierda o derecha */
+  z-index: 1;
+}
+
+.cuadro-container {
+  position: absolute;
+  bottom: 330px;
+  /* igual que el monitor, ajusta según la imagen */
+  left: 0%;
+  /* puedes moverlo más a la izquierda o derecha */
+  z-index: 1;
+}
+
+.lampara-container {
+  position: absolute;
+  bottom: 130px;
+  /* igual que el monitor, ajusta según la imagen */
+  left: 60%;
+  /* puedes moverlo más a la izquierda o derecha */
   z-index: 2;
 }
 
 /* Imagen de la mesa */
 .mesa-container img {
+  /* width: 600px; ajusta el tamaño según tu diseño */
   display: block;
   margin: 0 auto;
   z-index: 1;
   position: relative;
-  max-width: 90%;
-  height: auto;
 }
 
-/* Tooltips */
+/* --- Estilos para los Tooltips --- */
+/* 1. Contenedor del Objeto (Esencial) */
+/* Todos los contenedores de objetos deben ser 'position: relative' para que el tooltip se posicione correctamente respecto a ellos. */
 .object-with-tooltip {
   display: inline-block;
-  position: relative;
+  /* O el display que ya tengas, pero position:relative es clave */
 }
 
+/* 2. Estilo del Texto del Tooltip */
 .tooltip-text {
   visibility: hidden;
+  /* Oculto por defecto */
   width: auto;
+  /* Ancho del tooltip */
   background-color: #333;
   color: #fff;
   text-align: center;
@@ -48,19 +106,54 @@
   padding: 5px 10px;
   position: absolute;
   z-index: 1000;
+  /* Asegura que esté por encima de todos los objetos */
   bottom: 100%;
+  /* Posiciona el tooltip encima del objeto */
   left: 50%;
-  transform: translateX(-50%);
+  margin-left: -75px;
+  /* Centra el tooltip (mitad del ancho) */
   opacity: 0;
   transition: opacity 0.3s;
+  /* Transición suave para la aparición */
   pointer-events: none;
+  /* Asegura que el tooltip no interfiera con el clic */
   font-size: 0.9em;
   white-space: nowrap;
+  /* Evita saltos de línea innecesarios */
 }
-
-.tooltip-text::after {
+ 
+.tooltip-text-cafe {
+  visibility: hidden;
+  /* Oculto por defecto */
+  width: auto;
+  /* Ancho del tooltip */
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 1000;
+  /* Asegura que esté por encima de todos los objetos */
+  bottom: 20%;
+  /* Posiciona el tooltip encima del objeto */
+  right: 50%;
+  margin-left: -75px;
+  /* Centra el tooltip (mitad del ancho) */
+  opacity: 0;
+  transition: opacity 0.3s;
+  /* Transición suave para la aparición */
+  pointer-events: none;
+  /* Asegura que el tooltip no interfiera con el clic */
+  font-size: 0.9em;
+  white-space: nowrap;
+  /* Evita saltos de línea innecesarios */
+}
+/* 3. Flecha del Tooltip (Opcional, pero da mejor acabado) */
+.tooltip-text::after  {
   content: "";
   top: 100%;
+  /* Abajo del tooltip */
   left: 50%;
   margin-left: -5px;
   border-width: 5px;
@@ -68,60 +161,23 @@
   border-color: #333 transparent transparent transparent;
 }
 
-.object-with-tooltip:hover .tooltip-text {
+.tooltip-text-cafe::after{
+  content: "";
+  top: 100%;
+  /* Abajo del tooltip */
+  left: 10%;
+  margin-left: 5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+/* 4. Mostrar el Tooltip al hacer Hover */
+.object-with-tooltip:hover .tooltip-text  {
   visibility: visible;
   opacity: 1;
 }
-
-/* --- Media Queries para Móvil --- */
-@media (max-width: 768px) {
-  /* Contenedor principal en columna */
-  .desktop-container {
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-  }
-
-  /* Objetos apilados y relativos */
-  .monitor-container,
-  .libros-container,
-  .cafe-container,
-  .telefono-container,
-  .lampara-container,
-  .ventana-container,
-  .cuadro-container {
-    position: relative !important;
-    margin: 15px 0;
-    left: auto !important;
-    bottom: auto !important;
-    transform: none !important;
-  }
-
-  /* Escalar imágenes */
-  .monitor-container img,
-  .libros-container img,
-  .cafe-container img,
-  .telefono-container img,
-  .lampara-container img,
-  .ventana-container img,
-  .cuadro-container img,
-  .mesa-container img {
-    max-width: 80%;
-    height: auto;
-  }
-
-  /* Opcional: ocultar elementos decorativos */
-  .lampara-container,
-  .ventana-container,
-  .cuadro-container {
-    display: none;
-  }
-
-  /* Tooltips adaptativos */
-  .tooltip-text {
-    font-size: 0.75em;
-    padding: 4px 6px;
-    white-space: normal; /* permite varias líneas */
-    max-width: 150px;
-    }
-  }
+.object-with-tooltip:hover .tooltip-text-cafe  {
+  visibility: visible;
+  opacity: 1;
+}

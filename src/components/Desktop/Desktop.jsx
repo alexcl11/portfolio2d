@@ -386,7 +386,7 @@ export default class Desktop extends Component {
           onClick={() => this.setObjetoActivo('cafe')}
         >
           <Cafe />
-          <span className="tooltip-text">Taza de Café: Experiencia Profesional</span>
+          <span className="tooltip-text-cafe">Taza de Café: Experiencia Profesional</span>
         </div>
         
         
