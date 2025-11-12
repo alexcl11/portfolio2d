@@ -350,7 +350,7 @@ export default class Desktop extends Component {
         html: `
             <p style="font-size: 1.05em; line-height: 1.6; text-align: center;">
             Haz clic en los objetos del escritorio para descubrir más sobre mí.  
-            Cada elemento esconde una parte de mi historia como desarrollador   
+            Varios elementos esconden una parte de mi historia como desarrollador   
             </p>
         `,
         confirmButtonText: "¡Entendido!",
